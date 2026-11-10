@@ -313,7 +313,7 @@ async def classify_items(items: list[TenderItem]) -> list[ClassifiedTender]:
 # --------------------------------------------------------------------------
 
 
-@workflows.workflow.define(name="tender_radar")
+@workflows.workflow.define(name="tender-radar")
 class TenderRadarWorkflow:
     """Scans BZP + TED for AI tenders and publishes the digest to a library."""
 
