@@ -189,7 +189,7 @@ async def publish_digest(filename: str, markdown: str, library_name: str) -> Pub
 
     The Libraries API requires a user identity, which the deployment's service
     account lacks, so the activity prefers an explicit user API key bound as
-    the ``MISTRAL_API_KEY`` workspace secret; without it the activity falls
+    the ``TENDER_RADAR_MISTRAL_API_KEY`` workspace secret; without it the activity falls
     back to the plugin client (service identity) and will fail on publish.
     """
     import io
@@ -202,7 +202,7 @@ async def publish_digest(filename: str, markdown: str, library_name: str) -> Pub
     except ImportError:  # pragma: no cover - depends on the installed SDK
         from mistralai.models import File
 
-    api_key = os.environ.get("MISTRAL_API_KEY", "").strip()
+    api_key = os.environ.get("TENDER_RADAR_MISTRAL_API_KEY", "").strip()
     if api_key:
         # The plugin client cannot supply a user identity for the Libraries
         # API, so a raw client with the bound key is required here.
